@@ -1,0 +1,123 @@
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    padding: 5vh 5vw;;
+}
+.page__item {
+    background-color: var(--light-primary);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+    max-width: 800px;
+}
+.page__left {
+    background-color: rgb(254,254,254,.05);
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 20px 0 0 20px;
+}
+.page__left a {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    padding: 10px 10px;
+    gap: 6px;
+    border-bottom: 2px solid rgb(254,254,254,.05);
+    transition: all .3s linear;
+}
+.page__left a:first-child {
+    border-radius: 20px 0 0 0;
+}
+.page__left a:hover {
+    background-color: rgb(120, 36, 52, .4);
+}
+.page__right {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    flex-direction: column;
+    padding: 5vh 5vw;
+    min-height: 70vh;
+    height: 100%;
+}
+.page__right h2 {
+    font-size: 52px;
+    margin-bottom: 10px;
+    font-family: var(--KolkerBrush);
+}
+
+.form__field {
+    width: 100%;
+    position: relative;
+    margin-bottom: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+.form__field label {
+    color: rgb(254,254,254,.3);
+    font-size: 16px;
+}
+.form__field input {
+    background-color: transparent;
+    padding: 10px;
+    position: relative;
+    font-size: 18px;
+    font-family: var(--Inter);
+    width: 100%;
+    color: var(--white);
+    max-width: 400px;
+    /* border-bottom: 2px solid var(--light-gray); */
+}
+.form__field span {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    border-radius: 10px;
+    background-color: rgb(254,254,254,.3);
+    transition: all .3s linear;
+}
+.form__field span::after {
+    display: block;
+    content: '';
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    border-radius: 10px;
+    background-color: rgb(254,254,254,1);
+    transition: all .3s linear;
+}
+.form__field input:hover + span {
+    background-color: rgb(254,254,254,.5);
+}
+.form__field input:focus + span::after {
+    width: 100%;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.btn {
+    padding: 10px 10px;
+}

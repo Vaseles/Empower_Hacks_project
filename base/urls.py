@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import auth, index
+from .views import auth, index, user
 
 app_name = 'base'
 
@@ -9,4 +9,7 @@ urlpatterns = [
     path('sign-out', auth.sign_out, name='sign-out'),
     
     path('', index.index, name='index'),
+    
+    path('settings', user.update, name='update'),
+    path('delete-account', user.delete_account, name='delete-account'),
 ]

@@ -1,0 +1,64 @@
+{% include 'main.html' %}
+{% load static  %}
+
+{% block title %}
+<title>{{ page_type }}</title>
+<link rel="stylesheet" href="{% static 'css/settings.css' %}">
+{% endblock title %}
+
+{% block content %}
+<div class="page">
+    <div class="page__item">
+        <div class="page__left">
+            <a href="/">
+                <span class="material-symbols-outlined">
+                arrow_back
+                </span>
+                Go Back
+            </a>
+            <a 
+                href="/settings" 
+                {% if type == "Update Profile" %}style='background-color: #782434; color:white '{% endif %}
+            >
+                <span class="material-symbols-outlined">
+                    settings
+                    </span>
+                Update Profile
+            </a>
+            <a 
+                href="/delete-account"
+                {% if type == "Delete Account" %}style='background-color: #782434; color:white '{% endif %}
+            >
+                <span class="material-symbols-outlined">
+                    delete_forever
+                </span>
+                Delete Account
+            </a>
+        </div>
+        <form class="page__right" method="POST">
+            {% csrf_token %}
+            <h2>{{ type }}</h2>
+           {% if type == 'Update Profile' %}
+            <div class="form__field">
+                <label for="">Username:</label>
+                <input type="text" name="username" value="{{request.user.username}}" placeholder="Enter your username..." />
+                <span></span>
+            </div>
+
+            <div class="form__field">
+                <label for="">New Password:</label>
+                <input type="password" name="password" placeholder="Enter your password..." />
+                <span></span>
+            </div>
+
+            <button class="btn">Save</button>
+           {% else %}
+            <div class="buttons">
+                <a href="/">No, go back</a>
+                <button class="btn">Yes, I wanna delete this account</button>
+            </div>
+           {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock content %}
