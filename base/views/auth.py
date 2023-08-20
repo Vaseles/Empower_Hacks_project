@@ -48,7 +48,6 @@ def sign_up(request):
             user = User.objects.get(username=username)
             
             messages.error(request, 'Username already in use')
-            return redirect('base:sign-in')
         except:
             user = User.objects.create(
               username = username,
