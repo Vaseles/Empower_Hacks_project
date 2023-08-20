@@ -1,0 +1,46 @@
+{% include 'main.html' %}
+{% load static  %}
+
+{% block title %}
+<title>Home</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock title %}
+
+{% block content %}
+<div class="page">
+    <div class="page__header">
+        <a href="/add-new">
+            <span class="material-symbols-outlined">
+                add
+            </span>
+        </a>
+        <a href="/settings">
+            <span class="material-symbols-outlined">
+                settings
+            </span>
+        </a>
+        <a href="/sign-out">
+            <span class="material-symbols-outlined">
+                logout
+            </span>
+        </a>
+    </div>
+    <div class="page__content">
+        <div class="page__content__header">
+            <a href="/add-new">
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+                Add A New Project
+            </a>
+            <select name="" id="">
+                <option value="" disabled selected>Sorting...</option>
+                <option value="title">Title</option>
+                <option value="created">Time of creation</option>
+                <option value="created">Update time</option>
+            </select>
+        </div>
+        <div class="page__content__projects"></div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    {% block title %}{% endblock title %}
+</head>
+<body>
+    
+    <div class="messages">
+        {% if messages %}
+            {% for message in messages %}
+                <div class='message'>
+                    {{ message }}
+                    <span class="material-symbols-outlined message_close">
+                        cancel
+                    </span>
+                </div>
+            {% endfor %}
+        {% endif %}
+   </div>
+
+    {% block content %}{% endblock content %}
+
+    <script src='{% static "js/close_message.js" %}'></script>
+</body>
+</html>

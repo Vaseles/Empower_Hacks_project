@@ -1,0 +1,51 @@
+{% include 'main.html' %}
+{% load static  %}
+
+{% block title %}
+<title>{{ page_type }}</title>
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock title %}
+
+{% block content %}
+<div class="page">
+    <div class="page__right">
+        <div class="slider">
+            <img src="{% static 'media/sunset.jpg' %}" alt="sunset">
+            <div class="slider__menu">
+                <span class="activate"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="page__left">
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <h2>{{ page_type }}</h2>
+            
+
+            <div class="form__field">
+                <label for="">Username:</label>
+                <input type="text" name="username" placeholder="Enter your username..." />
+                <span></span>
+            </div>
+
+            <div class="form__field">
+                <label for="">Password:</label>
+                <input type="password" name="password" placeholder="Enter your username..." />
+                <span></span>
+            </div>
+
+            <button class="btn">Continue</button>
+
+            {% if page_type == 'Sign Up' %}
+            <p>I have an account. <a href="/sign-in">Sign In</a></p>
+            {% else %}
+            <p>I don't have an account. <a href="/sign-up">Sign Up</a></p>
+            {% endif %}
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,82 @@
+@import './varibles.css';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+body {
+    background-color: var(--dark-primary);
+    color: var(--light-gray);
+    font-family: var(--Inter);
+    font-size: 18px;
+    overflow-x: hidden;
+}
+
+::selection {
+    background-color: var(--purple);
+    color: var(--light-gray);
+}
+.btn {
+    padding: 10px 40px;
+    border-radius: 10px;
+    background-color: rgb(254,254,254,.1);
+    color: var(--white);
+    font-size: 18px;
+    font-family: var(--Inter);
+}
+.btn, a, button,input,  select, textarea {
+    transition: all .3s linear;
+}
+.btn:hover {
+    background-color: var(--purple);
+    cursor: pointer;
+}
+
+.messages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+}
+.message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 60vw;
+    position: fixed;
+    top: 20vh;
+    right: 20vw;
+    left: 20vw;
+    background-color: var(--dark-primary);
+    border-radius: 20px;
+    border: 1px solid var(--light-primary);
+    padding: 20px;
+    font-size: 22;
+    z-index: 10;
+}
+.message_close {
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--light-gray);
+
+    transition: all .3s linear;
+}
+.message_close {
+    color: var(--white);
+}
+a {
+    color: var(--light-gray);
+    font-weight: 600;
+    font-style: italic;
+}
+a:hover {
+    color: var(--white);
+}
+
