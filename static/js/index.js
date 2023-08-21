@@ -14,17 +14,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 projects_content.innerHTML = ''
 
                 for (const project of data) {
-                    const a = document.createElement('a')
-                    a.id = project.id
-                    a.className = 'project'
-                    a.href = `/projects/${project.id}`
+                    const div = document.createElement('div')
+                    div.id = project.id
+                    div.classList.add('project')
+                    // div.href = `/projects/${project.id}`
 
-                    a.innerHTML = `
-                        <img src='https://images.pexels.com/photos/17930312/pexels-photo-17930312/free-photo-of-empty-platforms-at-a-subway-station.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='${project.title}' />
-                        <div>${project.title}</div>
+                    div.innerHTML = `
+                        <a href='/projects/${project.id}'><img src='https://images.pexels.com/photos/17930312/pexels-photo-17930312/free-photo-of-empty-platforms-at-a-subway-station.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='${project.title}' /></a>
+                        <a class='div' href='/projects/${project.id}'>${project.title}</a>
+                        <div class='div project__delete'>
+                            <span class="material-symbols-outlined">
+                            delete
+                            </span>
+                        </div>
                     `
 
-                    projects_content.appendChild(a)
+                    projects_content.appendChild(div)
+
+                    let projects = document.querySelectorAll('.project')
+                    let project__deletes = document.querySelectorAll('.project__delete')
+                    
+                    for (let i = 0; i < projects.length; i++) {
+                        project__deletes[i].addEventListener('click', () => {
+                            projects[i].style.display = 'none'
+
+                            fetch(`/api/projects/${projects[i].id}/delete`, {
+                                'method': 'POST',
+                            })
+                                .then(response => response.json())
+                                .then(data => console.log(data))
+                                .catch(err => console.error(err))
+                        })
+                        
+                    }
                 }
             })
             .catch((err) => {

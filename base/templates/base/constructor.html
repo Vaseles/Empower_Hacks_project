@@ -9,9 +9,12 @@
 {% block content %}
 <div class="page">
     <input type="hidden" name="project_id" id='project_id' value="{{ project.id }}">
-    <form class="page__header" method='POST'  id='title'>
-        <input type="text" placeholder="Enter project name..." name='title' value="{{ project.title }}" title="Project title" id="title_input">
-    </form>
+    <div class="page__header" >
+        <form action="" method='POST'  id='title'>
+            <input type="text" placeholder="Enter project name..." name='title' value="{{ project.title }}" title="Project title" id="title_input">
+        </form>
+        <button id="clearMaket">Clear All</button>
+    </div>
     <div class="page__content">
         <div class="page__left"></div>
         <div class="page__center"></div>

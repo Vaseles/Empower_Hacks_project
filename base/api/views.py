@@ -1,6 +1,8 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 
+import json
+
 from ..models import Project
 
 @csrf_exempt
@@ -50,11 +52,9 @@ def project_get_update(request, id):
         }, status=200)
     elif request.method == 'POST':
         title = request.POST.get('title')
-    
         
         project.title = title
         project.save()
-        print(request)
         return JsonResponse({
             'status': 'success',
         }, status=200)
@@ -69,10 +69,23 @@ def project_content(request, id):
         }, status=200)
         
     if request.method == 'POST':
-        project.content = request.POST.get('content')
+        print(request)
+        
+        content_data = json.loads(request.body.decode('utf-8'))
+        project.content = content_data
         project.save()
         
         return JsonResponse({
             'status': 'success',
+            'content': project.content
         }, status=200)
         
+@csrf_exempt
+def project_delete(request, id):
+    project = Project.objects.get(id=id)
+    
+    if request.method == 'POST':
+        project.delete()
+        return JsonResponse({
+            'status': 'success',
+        }, status=200)

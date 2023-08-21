@@ -159,7 +159,7 @@ form h2 {
 
     transition: all .3s linear;
 }
-.project img {
+.project a img {
     max-width: 300px;
     max-height: 200px;
     width: 100%;
@@ -172,12 +172,22 @@ form h2 {
     top: 0;
     left: 0;
 }
-.project div {
+.project .div {
     background-color: var(--primary);
     padding: 8px 10px;
     border-radius: 20px;
     position: absolute;
     z-index: 1;
-    bottom: 10px;
-    left: 10px;
+    top: 10px;
+    right: 10px;
+}
+.project__delete {
+    top: 140px !important;
+    right: 10px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
