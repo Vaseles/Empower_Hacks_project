@@ -103,24 +103,6 @@
     background-color: rgb(120, 36, 52, .5);
     box-shadow: 10px 10px 100px 100px rgb(120, 36, 52, .5);
 }
-.page__left form h2 {
-    font-family: var(--KolkerBrush);
-    font-size: 64px;
-}
-.form__field {
-    width: 100%;
-    position: relative;
-    margin-bottom: 14px;
-
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    flex-direction: column;
-}
-.form__field label {
-    color: rgb(254,254,254,.3);
-    font-size: 16px;
-}
 .page__left form p {
     color: rgb(254,254,254,.5);
     font-size: 16px;
@@ -128,42 +110,4 @@
 }
 .page__left form p a {
     color: rgb(254,254,254,.5);
-}
-.form__field input {
-    background-color: transparent;
-    padding: 10px;
-    position: relative;
-    font-size: 18px;
-    font-family: var(--Inter);
-    width: 100%;
-    color: var(--white);
-    /* border-bottom: 2px solid var(--light-gray); */
-}
-.form__field span {
-    display: block;
-    content: '';
-    width: 100%;
-    height: 2px;
-    position: absolute;
-    bottom: 0;
-    border-radius: 10px;
-    background-color: rgb(254,254,254,.3);
-    transition: all .3s linear;
-}
-.form__field span::after {
-    display: block;
-    content: '';
-    width: 0%;
-    height: 2px;
-    position: absolute;
-    bottom: 0;
-    border-radius: 10px;
-    background-color: rgb(254,254,254,1);
-    transition: all .3s linear;
-}
-.form__field input:hover + span {
-    background-color: rgb(254,254,254,.5);
-}
-.form__field input:focus + span::after {
-    width: 100%;
 }

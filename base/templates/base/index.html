@@ -9,7 +9,7 @@
 {% block content %}
 <div class="page">
     <div class="page__header">
-        <a href="/add-new">
+        <a>
             <span class="material-symbols-outlined">
                 add
             </span>
@@ -27,7 +27,7 @@
     </div>
     <div class="page__content">
         <div class="page__content__header">
-            <a href="/add-new">
+            <a id="Create-Project-Button">
                 <span class="material-symbols-outlined">
                     add
                 </span>
@@ -42,5 +42,24 @@
         </div>
         <div class="page__content__projects"></div>
     </div>
+    <div class="create__project__window" style="display: none; opacity: 0;">
+        <form action="" method="post" id="Create-Project-Form">
+            {% csrf_token %}
+            <span class="material-symbols-outlined" id="Close-Project-Form">
+                close
+            </span>
+            
+            <h2>Create A New Project</h2>
+            
+            <div class="form__field">
+                <label for="">Title:</label>
+                <input type="text" name="title" placeholder="Enter project title..." required />
+                <span></span>
+            </div>
+
+            <button class="btn">Continue</button>
+        </form>
+    </div>
 </div>
+<script src="/static/js/index.js"></script>
 {% endblock content %}

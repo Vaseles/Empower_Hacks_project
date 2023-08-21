@@ -1,0 +1,31 @@
+{% include 'main.html' %}
+{% load static  %}
+
+{% block title %}
+<title>{{ project.title }}</title>
+<link rel="stylesheet" href="{% static 'css/constructor.css' %}">
+{% endblock title %}
+
+{% block content %}
+<div class="page">
+    <input type="hidden" name="project_id" id='project_id' value="{{ project.id }}">
+    <form class="page__header" method='POST'  id='title'>
+        <input type="text" placeholder="Enter project name..." name='title' value="{{ project.title }}" title="Project title" id="title_input">
+    </form>
+    <div class="page__content">
+        <div class="page__left"></div>
+        <div class="page__center"></div>
+        <div class="page__right"></div>
+    </div>
+    <div class="page__bottom">
+        <input type="text" placeholder="What do you want to create?" name='create-text' >
+        <button>
+            <span class="material-symbols-outlined">
+                send
+            </span>
+        </button>
+    </div>  
+</div>
+
+<script src="/static/js/constructor.js"></script>
+{% endblock content %}

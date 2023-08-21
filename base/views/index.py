@@ -13,3 +13,11 @@ def index(request):
         'projects': projects,
     } )
     
+@login_required(login_url='base:sign-in')
+def constructor(request, id):
+    project = Project.objects.get(id=id)
+    
+    return render(request, 'base/constructor.html', {
+        'project': project,
+    })
+    
