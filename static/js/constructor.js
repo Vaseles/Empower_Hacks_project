@@ -233,6 +233,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fetchContent()
 
+    function showBlockStyle() {
+        const blocks = document.querySelectorAll('.block')
+
+        console.log(blocks)
+    }
+
     // save maket 
     function saveMaket () {
         const jsonData = JSON.stringify(maket.innerHTML);
@@ -272,7 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 saveMaket()
             })
         }
-
     }
 
     // render blocks
@@ -288,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         deleteBlock()
         saveMaket()
+        
     }
 
     const showProjectInfo = () => {

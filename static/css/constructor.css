@@ -202,3 +202,6 @@ input {
 #clearMaket {
     
 }
+.block:hover {
+    border: 1px solid  var(--purple);
+}
